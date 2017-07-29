@@ -11,6 +11,7 @@ namespace FirstTelegramBot.Controllers
         [Route(@"api/message/update")] //webhook uri part
         public async Task<OkResult> Update([FromBody] Update update)
         {
+
             var commands = Bot.Commands;
             var message = update.Message;
             var client = await Bot.Get();

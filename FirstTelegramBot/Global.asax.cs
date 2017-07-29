@@ -12,7 +12,6 @@ namespace FirstTelegramBot
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Bot.Get();
         }
     }
 }

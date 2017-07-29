@@ -12,16 +12,19 @@ namespace FirstTelegramBot.Models
 
         public static IReadOnlyList<Command> Commands => _commandsList.AsReadOnly();
 
+        static Bot()
+        {
+            _commandsList = new List<Command>();
+            _commandsList.Add(new HelloCommand());
+            //TODO: Add more commands
+        }
+
         public static async Task<TelegramBotClient> Get()
         {
             if (_client != null)
             {
                 return _client;
             }
-
-            _commandsList = new List<Command>();
-            _commandsList.Add(new HelloCommand());
-            //TODO: Add more commands
 
             _client = new TelegramBotClient(AppSettings.Key);
             var hook = string.Format(AppSettings.Url, "api/message/update");
